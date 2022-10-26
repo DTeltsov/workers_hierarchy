@@ -1,5 +1,5 @@
 # workers_hierarchy
-Little webpage, which displays all workers in tree view.
+Little webpage, which displays all workers and their hierarchy.
 Created useing Python, aiohttp, PostgreSQL, Alembic and [create-aio-app](https://github.com/aio-libs/create-aio-app) boilerplate generator.
 
 ## Usage
