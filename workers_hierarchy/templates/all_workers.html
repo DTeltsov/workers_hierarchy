@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>
+        input[type=submit] {
+        width: 30%;
+        background-color: #4c87af;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+        background-color: #4c87afd3;
+        }
+
+        .main ul {
+            margin: 2rem;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:link {
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
+    <form action="/worker/create">
+        <input type="submit" value="Add worker" />
+    </form>
+    {% if parents %}
+      <ul class="main">
+        {% for key, value in hierarchy.items() recursive %}                       
+          <li class="nested">
+            <a href="/worker/{{ parents[key].id }}">{{ parents[key].last_name }} {{ parents[key].first_name }} {{ parents[key].surname }}</a>
+              {{ parents[key].position }}                                                
+            {%- if value %}                                                                                             
+              <ul class="main">{{ loop(value.items())}}</ul>                                     
+            {%- endif %}                                                            
+          </li>                                                                     
+        {% endfor %}
+      </ul>    
+    {% endif %} 
+{% endblock %}

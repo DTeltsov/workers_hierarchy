@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+  <style>
+        input[type=submit] {
+        width: 30%;
+        background-color: #4c87af;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #4c87afd3;
+        }
+  </style>
+  {% if worker %}
+  <h2>Do you really want to delete worker: {{ worker.last_name }} {{ worker.first_name }} {{ worker.surname }} ?</h2>
+  <form method="post" action="/worker/{{ worker.id }}/delete">
+    <input type="submit" value="Yes" />
+  </form>
+  <form method="get" action="/worker/{{ worker.id }}">
+    <input type="submit" value="No" />
+  </form>
+  {% else %}
+    <h2>{{ error }}</h2>
+  {% endif %}
+{% endblock %}

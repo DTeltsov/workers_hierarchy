@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+  <style>
+input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=number], input[type=date] {
+      width: 37%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+      width: 100%;
+      background-color: #4c87af;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #4c87afd3;
+    }
+    
+    div {
+      border-radius: 7px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      margin-top: 5rem;
+    }
+  </style>
+  {% if error%}
+    <h2>{{ error }}</h2>
+  {% endif %}
+  <div>
+    <h2>Update worker info</h2>
+    <form action="/worker/{{ worker.id }}/update" method="post" accept-charset="utf-8"
+      enctype="application/x-www-form-urlencoded">
+
+      <label for="first_name">First name</label>
+      <input id="first_name" name="first_name" type="text" value="{{ worker.first_name }}" autofocus/>
+
+      <label for="last_name">Last name</label>
+      <input id="last_name" name="last_name" type="text" value="{{ worker.last_name }}"/>
+
+      <label for="surname">Surname</label>
+      <input id="surname" name="surname" type="text" value="{{ worker.surname }}"/>
+
+      <label for="position">Position</label>
+      <input id="position" name="position" type="text" value="{{ worker.position }}"/>
+
+      <label for="salary">Salary</label>
+      <input id="salary" name="salary" type="number" value="{{ worker.salary }}"/>
+
+      <label for="employment_date">Employment date</label>
+      <input id="employment_date" name="employment_date" type="date" max="{{ date }}" value="{{ worker.employment_date }}"/>  
+
+      <label for="manager_id">Manager</label>
+      <select name="manager_id" id="manager_id">
+        {% if workers %}
+          {% for worker in workers %}
+            <option value="{{ worker.id }}">{{ worker.last_name }} {{ worker.first_name }} {{ worker.surname }}</option>
+          {% endfor %}
+        {% else %}
+            <option value="1">Manager for himself</option>
+        {% endif %}
+      </select>
+
+      <input type="submit" value="update"/>
+    </form>
+  </div>
+{% endblock %}
