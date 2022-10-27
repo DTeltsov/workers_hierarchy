@@ -33,6 +33,6 @@ make clean
 ## Structure
 
 - In [routes.py](https://github.com/DTeltsov/workers_hierarchy/blob/master/workers_hierarchy/routes.py) you can find all routes and coresponding views.
-- In [views.py](https://github.com/DTeltsov/workers_hierarchy/blob/master/workers_hierarchy/main/views.py) you can find all views and in [views_utils.py](https://github.com/DTeltsov/workers_hierarchy/blob/master/workers_hierarchy/utils/views_utils.py) you can find all relative utils.
+- In [views.py](https://github.com/DTeltsov/workers_hierarchy/blob/master/workers_hierarchy/main/views.py) you can find all views and in [views_utils.py](https://github.com/DTeltsov/workers_hierarchy/blob/master/workers_hierarchy/utils/views_utils.py) you can find all related utils.
 - In [db_utils.py](https://github.com/DTeltsov/workers_hierarchy/blob/master/workers_hierarchy/users/db_utils.py) you can find all db-related functions, which are used in views.
 - In [tables.py](https://github.com/DTeltsov/workers_hierarchy/blob/master/workers_hierarchy/users/tables.py) you can find tables declarations.
