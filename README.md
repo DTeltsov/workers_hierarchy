@@ -7,9 +7,14 @@ Created useing Python, aiohttp, PostgreSQL, Alembic and [create-aio-app](https:/
 ### First Build
 ```bash
 make run
+```
+And when server is up, run this two commands
+```bash
 make migrations
 make migrate
+
 ```
+
 ### To stop
 ```bash
 make stop
